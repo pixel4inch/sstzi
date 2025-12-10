@@ -6,8 +6,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@100;300;400;500;600;700;800&display=swap');
 /* variable */
 :root {     
-    --base-color: #5758D6;
-    --dark-gray: #262b35;
+    --base-color: #ea3e2d;
+    --dark-gray: #253551;
     --medium-gray:#868d98;
     --primary-font: 'Be Vietnam', sans-serif;
     --alt-font: 'Sora', sans-serif;
@@ -110,7 +110,7 @@ header.sticky.sticky-active [data-header-hover="light"] .widget-text i {
 }
 /* footer */
 footer .footer-logo img {
-    max-height: 26px;
+    max-height: 90px;
 }
 footer ul li {
     margin-bottom: 0;
@@ -132,8 +132,8 @@ footer ul li {
 }
 @media (max-width: 1399px) {
     .navbar .navbar-nav .nav-link {
-        padding-left: 13px;
-        padding-right: 13px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
     .sticky-wrap.shadow-in {
         left: 35px;
