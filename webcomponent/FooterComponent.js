@@ -8,7 +8,7 @@ class FooterComponent extends HTMLElement {
                 <div class="row justify-content-center">
                     <!-- start footer column -->
                     <div class="col-lg-3 col-sm-6 last-paragraph-no-margin order-5 order-sm-4 order-lg-1 text-center">
-                        <a href="index.html" class="footer-logo mb-6px d-block d-lg-inline-block"><img src="img/mainlogofooter.png" data-at2x="images/demo-business-logo-white@2x.png" alt=""></a>
+                        <a href="index.html" class="footer-logo mb-6px d-block d-lg-inline-block"><img src="img/mainlogofooter.png" data-at2x="img/mainlogofooter.png" alt=""></a>
                         <p class="w-90 sm-w-100 d-inline-block mb-6px text-left lh-20 fs-14">1#5-22, first floor,<br/> Road No: 2/A, <br/> Near Gokul plots Signal,<br/> KPHB Colony, Hyderabad.500085.</p>
                         
                     </div>
