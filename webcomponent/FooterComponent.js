@@ -3,7 +3,7 @@ class FooterComponent extends HTMLElement {
         this.innerHTML = `
       
          <!-- start footer -->
-        <footer class="pt-5 pb-5 sm-pt-40px sm-pb-45px footer-dark bg-extra-medium-slate-blue"> 
+        <footer class="pt-2 pb-2 sm-pt-10px sm-pb-10px footer-dark bg-extra-medium-slate-blue"> 
             <div class="container">
                 <div class="row justify-content-center">
                     <!-- start footer column -->
@@ -66,6 +66,10 @@ class FooterComponent extends HTMLElement {
                     <!-- end footer column -->
                 </div>
             </div> 
+
+            <div class="border-top border-color-transparent-white-light pt-35px pb-35px text-center mt-5">
+                    <span class="fs-15 w-60 lg-w-70 md-w-100 d-block mx-auto lh-22">Copyright © 2025 | Powered by Tzigane</span>
+            </div>
         </footer>
         <!-- end footer -->
         <!-- start sticky column -->
