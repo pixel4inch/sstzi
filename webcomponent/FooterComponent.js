@@ -85,6 +85,11 @@ class FooterComponent extends HTMLElement {
         </div>
         <!-- end scroll progress -->
 
+        <a id="wa-fab" href="#" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+             <i class="fab fa-whatsapp"></i>
+        </a>        
+
+<div id="wa-tooltip" role="status" aria-hidden="true">Chat with us on WhatsApp</div>
   
       `;
     }
@@ -93,3 +98,37 @@ class FooterComponent extends HTMLElement {
 customElements.define('footer-component', FooterComponent);
 
 
+
+  (function(){
+    const phone = "918885333539"; // international format without +
+    const text  = "Hello%20I%20want%20to%20know%20more"; // URL-encoded
+    const fab = document.getElementById("wa-fab");
+    const tip = document.getElementById("wa-tooltip");
+
+    // Detect mobile
+    const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    // Choose appropriate link
+    const url = isMobile
+      ? `whatsapp://send?phone=${phone}&text=${text}`       // opens WhatsApp mobile app
+      : `https://web.whatsapp.com/send?phone=${phone}&text=${text}`; // opens WhatsApp Web
+
+    fab.setAttribute("href", url);
+
+    // Show tooltip on hover for desktop
+    fab.addEventListener("mouseenter", () => { if(!isMobile) tip.style.display = "block"; });
+    fab.addEventListener("mouseleave", () => { if(!isMobile) tip.style.display = "none"; });
+
+    // On mobile, fallback to wa.me if whatsapp:// can't open
+    fab.addEventListener("click", (e) => {
+      if(isMobile){
+        // Some mobile browsers disallow whatsapp:// — ensure fallback after short delay
+        setTimeout(()=> {
+          // If page not hidden (meaning app didn't open), fallback to wa.me
+          if (!document.hidden) {
+            window.location.href = `https://wa.me/${phone}?text=${text}`;
+          }
+        }, 800);
+      }
+    });
+  })();

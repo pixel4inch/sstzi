@@ -1,0 +1,35 @@
+/*=====================
+    WhatApp styles
+=====================*/
+
+ #wa-fab{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width:56px; height:56px;
+    background:#25D366;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    box-shadow:0 10px 20px rgba(0,0,0,0.12);
+    text-decoration:none;
+    transition:transform .15s ease;
+  }
+  #wa-fab:hover{ transform:translateY(-4px) scale(1.02); }
+  #wa-fab i{ font-size:22px; }
+  #wa-tooltip{
+    position: fixed;
+    right: 86px;
+    bottom: 28px;
+    background: rgba(0,0,0,0.75);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    z-index: 9998;
+    display: none;
+  }
+  @media (max-width:420px){ #wa-tooltip{ display:none; } }

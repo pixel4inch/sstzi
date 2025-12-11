@@ -54,10 +54,10 @@ class HeaderComponent extends HTMLElement {
                             </ul>
                         </div>
                     </div>
-                    <div class="col-auto col-xxl-3 col-lg-2 text-end d-none d-sm-flex">
+                    <div class="col-auto col-xxl-2 col-lg-3 text-end d-none d-sm-flex">
                         <div class="header-icon">
-                            <div class="d-none d-xxl-inline-block me-25px xxl-me-10px"><div class="alt-font fs-15 xl-fs-13 widget-text fw-500"><span class="w-35px h-35px bg-base-color d-inline-block lh-36 me-10px border-radius-100px"><i class="feather icon-feather-phone me-10px"></i></span><a href="tel:1800222000" class="widget-text text-white-hover">1 800 222 000</a></div></div>
-                            <div class="header-button"><a href="getquote.html" class="btn btn-small btn-rounded btn-base-color btn-box-shadow">Get a quote</a></div>
+                            <div class="d-none d-xxl-inline-block me-25px xxl-me-10px"><div class="alt-font fs-15 xl-fs-13 widget-text fw-500"></div></div>
+                            <div class="header-button"><a href="getquote.html" class="btn btn-small btn-rounded btn-base-color btn-box-shadow me-15px">Get a quote</a></div>
                         </div>  
                     </div>
                 </div>
@@ -71,3 +71,13 @@ class HeaderComponent extends HTMLElement {
 }
 
 customElements.define("header-component", HeaderComponent);
+
+
+
+
+
+
+
+
+
+
