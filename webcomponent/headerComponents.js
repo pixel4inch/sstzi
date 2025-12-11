@@ -37,7 +37,7 @@ class HeaderComponent extends HTMLElement {
                                 </li>
 
                                 <li class="nav-item dropdown dropdown-with-icon-style02">
-                                    <a href="javascript:valid(0)" class="nav-link">Service</a>
+                                    <a href="service.html" class="nav-link">Service</a>
                                     <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
                                      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
                                         <li><a href="javascrip:valid(0)">Service-1</a></li>
