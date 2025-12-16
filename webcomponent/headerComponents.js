@@ -3,7 +3,7 @@ class HeaderComponent extends HTMLElement {
         this.innerHTML = `
             <header> 
             <!-- start navigation -->
-            <nav class="navbar navbar-expand-lg header-transparent  bg-white  header-reverse" data-header-hover="light">
+            <nav class="navbar navbar-expand-lg header-transparent  bg-white  header-reverse position-relative" data-header-hover="light">
                 <div class="container-fluid">
                     <div class="col-auto col-xxl-3 col-lg-3 me-lg-0 me-auto">
                         <a class="navbar-brand" href="index.html">
@@ -58,8 +58,16 @@ class HeaderComponent extends HTMLElement {
                         <div class="header-icon">
                             <div class="d-none d-xxl-inline-block me-25px xxl-me-10px"><div class="alt-font fs-15 xl-fs-13 widget-text fw-500"></div></div>
                             <div class="header-button"><a href="getquote.html" class="btn btn-small btn-rounded btn-base-color btn-box-shadow me-15px">Get a quote</a></div>
-                        </div>  
+                        </div> 
+                        
+                         <button id="theme-toggle" class="theme-toggle">
+                            <span class="sun-icon">☀️</span>
+                            <span class="moon-icon">🌙</span>
+                         </button>
                     </div>
+
+                   
+
                 </div>
             </nav>
             <!-- end navigation -->
