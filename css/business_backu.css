@@ -5,25 +5,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@100;300;400;500;600;700;800&display=swap');
 /* variable */
+/*
 :root {     
     --base-color: #ea3e2d;
     --dark-gray: #253551;
     --medium-gray:#868d98;
     --primary-font: 'Be Vietnam', sans-serif;
     --alt-font: 'Sora', sans-serif;
+}*/
+
+/*---LIGHT Mode----*/
+:root {
+    --base-color: #ea3e2d;
+    --dark-gray: #253551;
+    --medium-gray: #868d98;
+    --white: #ffffff;
+    --black: #000000;
+    --bg-body: #ffffff;
+    --bg-secondary: #f6f7fb;
+    --text-main: #253551;
+    --text-light: #868d98;
+    --card-bg: #ffffff;
+    --shadow: rgba(0,0,0,0.08);
 }
+
+/*---DARK MODE----*/
+[data-theme="dark"] {
+    --base-color: #ea3e2d;
+    --dark-gray: #dfe7ff;
+    --medium-gray: #aab3c4;
+    --white: #ffffff;
+    --black: #000000;
+    --bg-body: #1d1f24;
+    --bg-secondary: #2a2d34;
+    --text-main: #f3f4f7;
+    --text-light: #9aa3b5;
+    --card-bg: #2a2d34;
+    --shadow: rgba(0,0,0,0.45);
+}
+
 
 
 
 /* reset */
-body { 
+body {
     font-size: 17px;
     line-height: 32px;
+    background: var(--bg-body);
+    color: var(--text-main);
 }
+
 /* header */
 header .navbar-brand img {
     max-height: 75px;
 }
+
 .navbar .navbar-nav .nav-link {
     font-size: 17px;
     font-weight: 400;
@@ -37,9 +73,13 @@ header .navbar-brand img {
     color: var(--white);
     background:  var(--dark-gray);
 }
+
+
 header.sticky.sticky-active [data-header-hover="light"] .widget-text i {
     color: var(--white);
 }
+
+
 /* accordion style 02 */
 .navbar .navbar-nav .dropdown.dropdown-with-icon-style02 .dropdown-menu {
     background-color: var(--dark-gray);

@@ -545,26 +545,7 @@
 
 
 
-    /* ===================================
-      Dark & Light Mode
-     ====================================== */
-
-        const toggleBtn = document.getElementById("theme-toggle");
-
-        // check saved preference
-        if (localStorage.getItem("theme")) {
-            document.documentElement.setAttribute("data-theme", localStorage.getItem("theme"));
-        } else {
-            document.documentElement.setAttribute("data-theme", "light");
-        }
-
-        toggleBtn.addEventListener("click", () => {
-            const currentTheme = document.documentElement.getAttribute("data-theme");
-            const newTheme = currentTheme === "light" ? "dark" : "light";
-
-            document.documentElement.setAttribute("data-theme", newTheme);
-            localStorage.setItem("theme", newTheme);
-        });
+    
 
 
 

@@ -1,7 +1,7 @@
 class HeaderComponent extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-            <header> 
+            <header class="position-relative"> 
             <!-- start navigation -->
             <nav class="navbar navbar-expand-lg header-transparent  bg-white  header-reverse position-relative" data-header-hover="light">
                 <div class="container-fluid">
@@ -60,7 +60,7 @@ class HeaderComponent extends HTMLElement {
                             <div class="header-button"><a href="getquote.html" class="btn btn-small btn-rounded btn-base-color btn-box-shadow me-15px">Get a quote</a></div>
                         </div> 
                         
-                         <button id="theme-toggle" class="theme-toggle">
+                         <button id="theme-toggle" class="theme-toggle mt-25px d-none">
                             <span class="sun-icon">☀️</span>
                             <span class="moon-icon">🌙</span>
                          </button>
@@ -82,7 +82,26 @@ customElements.define("header-component", HeaderComponent);
 
 
 
+/* ===================================
+      Dark & Light Mode
+     ====================================== */
 
+        const toggleBtn = document.getElementById("theme-toggle");
+
+        // check saved preference
+        if (localStorage.getItem("theme")) {
+            document.documentElement.setAttribute("data-theme", localStorage.getItem("theme"));
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            const currentTheme = document.documentElement.getAttribute("data-theme");
+            const newTheme = currentTheme === "light" ? "dark" : "light";
+
+            document.documentElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+        });
 
 
 
