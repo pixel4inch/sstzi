@@ -1,174 +1,75 @@
 <?php
-if( ! empty( $_POST['email'] ) ) {
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-	// Enable / Disable SMTP
-	$enable_smtp = 'no'; // yes OR no
+require 'phpmailer/Exception.php';
+require 'phpmailer/PHPMailer.php';
+require 'phpmailer/SMTP.php';
 
-	// Email Receiver Address
-	$receiver_email = 'info@domain.com';
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-	// Email Receiver Name for SMTP Email
-	$receiver_name 	= 'Your Name';
+    // Receiver email
+    $toEmail = "bojjapu.cri@gmail.com";
+    $toName  = "Srinivas";
 
-	// Email Subject
-	$subject = 'Contact form details';
+    // Sanitize inputs
+    $name    = htmlspecialchars(trim($_POST["name"] ?? ""));
+    $email   = htmlspecialchars(trim($_POST["email"] ?? ""));
+    $phone   = htmlspecialchars(trim($_POST["phone"] ?? ""));
+    $company = htmlspecialchars(trim($_POST["company"] ?? ""));
+    $message = htmlspecialchars(trim($_POST["message"] ?? ""));
 
-	// Google reCaptcha secret Key
-	$grecaptcha_secret_key = 'YOUR_SECRET_KEY';
+    if (empty($name) || empty($email) || empty($phone) || empty($message)) {
+        echo json_encode([
+            "alert" => "alert-danger",
+            "message" => "Please fill all required fields."
+        ]);
+        exit;
+    }
 
-	$from 	= $_POST['email'];
-	$name 	= isset( $_POST['name'] ) ? $_POST['name'] : '';
+    $mail = new PHPMailer(true);
 
-	if( ! empty( $grecaptcha_secret_key ) && ! empty( $_POST['g-recaptcha-response'] ) ) {
+    try {
+        // SMTP settings
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'bojjapu.cri@gmail.com';   // 🔴 your Gmail
+        $mail->Password   = '';              // 🔴 App password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
 
-		$token = $_POST['g-recaptcha-response'];
+        // Sender & receiver
+        $mail->setFrom($email, $name);
+        $mail->addAddress($toEmail, $toName);
+        $mail->addReplyTo($email, $name);
 
-		// call curl to POST request
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
-		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query( array( 'secret' => $grecaptcha_secret_key, 'response' => $token ) ) );
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		$response = curl_exec($ch);
-		curl_close($ch);
-		$arrResponse = json_decode($response, true);
+        // Email content
+        $mail->isHTML(true);
+        $mail->Subject = "New Contact Form Submission - SS Tzigane";
 
-		// verify the response
-		if( isset( $_POST['action'] ) && ! ( isset( $arrResponse['success'] ) && $arrResponse['success'] == '1' && $arrResponse['action'] == $_POST['action'] && $arrResponse['score'] = 0.5 ) ) {
+        $mail->Body = "
+        <h3>New Contact Request</h3>
+        <table cellpadding='8' cellspacing='0' border='1'>
+            <tr><td><strong>Name</strong></td><td>$name</td></tr>
+            <tr><td><strong>Email</strong></td><td>$email</td></tr>
+            <tr><td><strong>Phone</strong></td><td>$phone</td></tr>
+            <tr><td><strong>Company</strong></td><td>$company</td></tr>
+            <tr><td><strong>Message</strong></td><td>$message</td></tr>
+        </table>
+        ";
 
-			echo '{ "alert": "alert-danger", "message": "Your message could not been sent due to invalid reCaptcha!" }';
-			die;
+        $mail->send();
 
-		} else if( ! isset( $_POST['action'] ) && ! ( isset( $arrResponse['success'] ) && $arrResponse['success'] == '1' ) ) {
+        echo json_encode([
+            "alert" => "alert-success",
+            "message" => "Your message has been sent successfully!"
+        ]);
 
-			echo '{ "alert": "alert-danger", "message": "Your message could not been sent due to invalid reCaptcha!" }';
-			die;
-		}
-	}
-
-	if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
-
-		$prefix		= !empty( $_POST['prefix'] ) ? $_POST['prefix'] : '';
-		$submits	= $_POST;
-		$botpassed	= false;
-
-		$fields = array();
-		foreach( $submits as $name => $value ) {
-			if( empty( $value ) ) {
-				continue;
-			}
-
-			$name = str_replace( $prefix , '', $name );
-			$name = function_exists('mb_convert_case') ? mb_convert_case( $name, MB_CASE_TITLE, "UTF-8" ) : ucwords($name);
-
-			if( is_array( $value ) ) {
-				$value = implode( ', ', $value );
-			}
-
-			$fields[$name] = nl2br( filter_var( $value, FILTER_SANITIZE_SPECIAL_CHARS ) );
-		}
-
-		$response = array();
-		foreach( $fields as $fieldname => $fieldvalue ) {
-			
-                    $fieldname = '<tr>
-                                                            <td align="right" valign="top" style="border-top:1px solid #dfdfdf; font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#000; padding:7px 5px 7px 0;">' . $fieldname . ': </td>';
-                    $fieldvalue = '<td align="left" valign="top" style="border-top:1px solid #dfdfdf; font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#000; padding:7px 0 7px 5px;">' . $fieldvalue . '</td>
-                                                    </tr>';
-                    $response[] = $fieldname . $fieldvalue;
-
-		}
-
-		$message = '<html>
-			<head>
-				<title>HTML email</title>
-			</head>
-			<body>
-				<table width="50%" border="0" align="center" cellpadding="0" cellspacing="0">
-				<tr>
-				<td colspan="2" align="center" valign="top"><img style="margin-top: 15px;" src="http://www.yourdomain.com/images/logo-email.png" ></td>
-				</tr>
-				<tr>
-				<td width="50%" align="right">&nbsp;</td>
-				<td align="left">&nbsp;</td>
-				</tr>
-				' . implode( '', $response ) . '
-				</table>
-			</body>
-			</html>';
-		if( $enable_smtp == 'no' ) { // Simple Email
-
-			// Always set content-type when sending HTML email
-			$headers = "MIME-Version: 1.0" . "\r\n";
-			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-			// More headers
-			$headers .= 'From: ' . $fields['Name'] . ' <' . $fields['Email'] . '>' . "\r\n";
-			if( mail( $receiver_email, $subject, $message, $headers ) ) {
-
-				// Redirect to success page
-				$redirect_page_url = ! empty( $_POST['redirect'] ) ? $_POST['redirect'] : '';
-				if( ! empty( $redirect_page_url ) ) {
-					header( "Location: " . $redirect_page_url );
-					exit();
-				}
-
-			   	//Success Message
-			  	echo '{ "alert": "alert alert-success alert-dismissable", "message": "Your message has been sent successfully!" }';
-			} else {
-				//Fail Message
-			  	echo '{ "alert": "alert alert-danger alert-dismissable", "message": "Your message could not been sent!" }';
-			}
-			
-		} else { // SMTP
-			// Email Receiver Addresses
-			$toemailaddresses = array();
-			$toemailaddresses[] = array(
-				'email' => $receiver_email, // Your Email Address
-				'name' 	=> $receiver_name // Your Name
-			);
-
-			require 'phpmailer/Exception.php';
-			require 'phpmailer/PHPMailer.php';
-			require 'phpmailer/SMTP.php';
-
-			$mail = new PHPMailer\PHPMailer\PHPMailer();
-
-			$mail->isSMTP();
-			$mail->Host     = 'YOUR_SMTP_HOST'; // Your SMTP Host
-			$mail->SMTPAuth = true;
-			$mail->Username = 'YOUR_SMTP_USERNAME'; // Your Username
-			$mail->Password = 'YOUR_SMTP_PASSWORD'; // Your Password
-			$mail->SMTPSecure = 'ssl'; // Your Secure Connection
-			$mail->Port     = 465; // Your Port
-			$mail->setFrom( $fields['Email'], $fields['Name'] );
-			
-			foreach( $toemailaddresses as $toemailaddress ) {
-				$mail->AddAddress( $toemailaddress['email'], $toemailaddress['name'] );
-			}
-
-			$mail->Subject = $subject;
-			$mail->isHTML( true );
-
-			$mail->Body = $message;
-
-			if( $mail->send() ) {
-				
-				// Redirect to success page
-				$redirect_page_url = ! empty( $_POST['redirect'] ) ? $_POST['redirect'] : '';
-				if( ! empty( $redirect_page_url ) ) {
-					header( "Location: " . $redirect_page_url );
-					exit();
-				}
-
-			   	//Success Message
-			  	echo '{ "alert": "alert alert-success alert-dismissable", "message": "Your message has been sent successfully!" }';
-			} else {
-				//Fail Message
-			  	echo '{ "alert": "alert alert-danger alert-dismissable", "message": "Your message could not been sent!" }';
-			}
-		}
-	}
-} else {
-	//Empty Email Message
-	echo '{ "alert": "alert alert-danger alert-dismissable", "message": "Please add an email address!" }';
+    } catch (Exception $e) {
+        echo json_encode([
+            "alert" => "alert-danger",
+            "message" => "Mailer Error: {$mail->ErrorInfo}"
+        ]);
+    }
 }

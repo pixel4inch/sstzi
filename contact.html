@@ -66,31 +66,41 @@
                             <h4 class="d-inline-block alt-font fw-600 text-dark-gray ls-minus-1px mb-30px">Feel free to reach via contact us form.</h4>
                             <!-- start contact form -->
                             <form action="email-templates/contact-form.php" method="post">
-                                <div class="position-relative form-group mb-20px">
-                                    <span class="form-icon"><i class="bi bi-emoji-smile"></i></span>
-                                    <input type="text" name="name" class="form-control required" placeholder="Your name*">
-                                </div> 
-                                <div class="position-relative form-group mb-20px">
-                                    <span class="form-icon"><i class="bi bi-envelope"></i></span>
-                                    <input type="email" name="email" class="form-control required" placeholder="Your email address*">
-                                </div> 
-                                 <div class="position-relative form-group mb-20px">
-                                    <span class="form-icon"><i class="bi bi-phone"></i></span>
-                                    <input type="number" name="email" class="form-control required" placeholder="Phone Number*">
-                                </div> 
-                                <div class="position-relative form-group mb-20px">
-                                    <span class="form-icon"><i class="bi bi-building"></i></span>
-                                    <input type="text" name="name" class="form-control required" placeholder="Company*">
-                                </div>
-                               
-                                <div class="position-relative form-group form-textarea">
-                                    <span class="form-icon"><i class="bi bi-chat-square-dots"></i></span>
-                                    <textarea placeholder="Your message" name="comment" class="form-control" rows="3"></textarea>
-                                    <input type="hidden" name="redirect" value="">
-                                    <button class="btn btn-small btn-round-edge btn-dark-gray btn-box-shadow mt-20px m-auto submit" type="submit">Send message</button>
-                                    <div class="form-results mt-20px d-none"></div>
-                                </div>
-                            </form>
+
+    <div class="position-relative form-group mb-20px">
+        <span class="form-icon"><i class="bi bi-emoji-smile"></i></span>
+        <input type="text" name="name" class="form-control required" placeholder="Your name*" required>
+    </div>
+
+    <div class="position-relative form-group mb-20px">
+        <span class="form-icon"><i class="bi bi-envelope"></i></span>
+        <input type="email" name="email" class="form-control required" placeholder="Your email address*" required>
+    </div>
+
+    <div class="position-relative form-group mb-20px">
+        <span class="form-icon"><i class="bi bi-phone"></i></span>
+        <input type="tel" name="phone" class="form-control required" placeholder="Phone Number*" required>
+    </div>
+
+    <div class="position-relative form-group mb-20px">
+        <span class="form-icon"><i class="bi bi-building"></i></span>
+        <input type="text" name="company" class="form-control required" placeholder="Company*" required>
+    </div>
+
+    <div class="position-relative form-group form-textarea">
+        <span class="form-icon"><i class="bi bi-chat-square-dots"></i></span>
+        <textarea placeholder="Your message" name="message" class="form-control" rows="3" required></textarea>
+
+        <input type="hidden" name="redirect" value="">
+        <button class="btn btn-small btn-round-edge btn-dark-gray btn-box-shadow mt-20px m-auto submit" type="submit">
+            Send message
+        </button>
+
+        <div class="form-results mt-20px d-none"></div>
+    </div>
+
+</form>
+
                             <!-- end contact form -->
                         </div>
                     </div>  
