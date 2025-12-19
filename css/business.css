@@ -20,15 +20,15 @@
 
 /* reset */
 body { 
-    font-size: 17px;
+    font-size: 16px;
     line-height: 32px;
 }
 /* header */
 header .navbar-brand img {
-    max-height: 75px;
+    max-height: 50px;
 }
 .navbar .navbar-nav .nav-link {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
 }
 .sticky .header-transparent .header-button .btn {

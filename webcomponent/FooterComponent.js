@@ -29,11 +29,10 @@ class FooterComponent extends HTMLElement {
                     <div class="col-7 col-lg-2 col-sm-4 md-mb-50px sm-mb-30px order-2 order-lg-3">
                         <span class="alt-font d-block text-white mb-5px">Services</span>
                         <ul>
-                            <li><a href="javascript:valid(0)">Commerical</a></li>
-                            <li><a href="javascript:valid(0)">Residential</a></li>
-                            <li><a href="javascript:valid(0)">Renewable-Energy</a></li>
-                            <li><a href="javascript:valid(0)">Tenants</a></li>
-                            <li><a href="javascript:valid(0)">Mining</a></li>
+                            <li><a href="commerical.html">Commerical</a></li>
+                            <li><a href="residential.html">Residential</a></li>
+                            <li><a href="renewable.html">Renewable-Energy</a></li>
+                           <li><a href="mining.html">Mining</a></li>
                         </ul>
                     </div>
                     <!-- end footer column -->

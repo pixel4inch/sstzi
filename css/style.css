@@ -4275,6 +4275,9 @@ input:focus, select:focus, textarea:focus, .form-control:focus {
   height: auto !important;
 }
 /* Screen height */
+.extra-tovery-small-screen {
+  height: 130px !important;
+}
 .extra-very-small-screen {
   height: 250px !important;
 }
