@@ -57,7 +57,7 @@ class HeaderComponent extends HTMLElement {
                     <div class="col-auto col-xxl-2 col-lg-3 text-end d-none d-sm-flex">
                         <div class="header-icon">
                             <div class="d-none d-xxl-inline-block me-25px xxl-me-10px"><div class="alt-font fs-15 xl-fs-13 widget-text fw-500"></div></div>
-                            <div class="header-button"><a href="getquote.html" class="btn btn-small btn-rounded btn-base-color btn-box-shadow me-15px">Get a quote</a></div>
+                            <div class="header-button"><a href="./img/SStzigane.pdf" target="_blank" class="btn btn-small btn-rounded btn-base-color btn-box-shadow me-15px"><i class="feather icon-feather-file icon-small me-3px align-middle"></i> Brochure</a></div>
                         </div> 
                         
                          <button id="theme-toggle" class="theme-toggle mt-25px d-none">

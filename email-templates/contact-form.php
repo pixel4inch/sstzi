@@ -8,9 +8,9 @@ require 'phpmailer/SMTP.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // Receiver email
-    $toEmail = "bojjapu.cri@gmail.com";
-    $toName  = "Srinivas";
+    // Receiver email (domain email)
+    $toEmail = "contact@pixello9.com";
+    $toName  = "Pixello9 Website";
 
     // Sanitize inputs
     $name    = htmlspecialchars(trim($_POST["name"] ?? ""));
@@ -30,23 +30,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $mail = new PHPMailer(true);
 
     try {
-        // SMTP settings
+        // 🔐 SMTP settings (DOMAIN EMAIL)
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';
+        $mail->Host       = 'mail.pixello9.com';   // 🔴 Check hosting mail server
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'bojjapu.cri@gmail.com';   // 🔴 your Gmail
-        $mail->Password   = '';              // 🔴 App password
+        $mail->Username   = 'contact@pixello9.com'; // 🔴 Domain email
+        $mail->Password   = 'EMAIL_PASSWORD';       // 🔴 Domain email password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
+        $mail->Port       = 587; // or 465 (SSL)
 
-        // Sender & receiver
-        $mail->setFrom($email, $name);
+        // ✅ IMPORTANT: setFrom MUST match SMTP email
+        $mail->setFrom('contact@pixello9.com', 'Pixello9 Website');
         $mail->addAddress($toEmail, $toName);
-        $mail->addReplyTo($email, $name);
+        $mail->addReplyTo($email, $name); // user reply
 
         // Email content
         $mail->isHTML(true);
-        $mail->Subject = "New Contact Form Submission - SS Tzigane";
+        $mail->Subject = "New Contact Form Submission - Pixello9";
 
         $mail->Body = "
         <h3>New Contact Request</h3>

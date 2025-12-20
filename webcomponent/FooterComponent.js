@@ -40,10 +40,10 @@ class FooterComponent extends HTMLElement {
                     <div class="col-5 col-lg-2 col-sm-4 md-mb-50px sm-mb-30px order-3 order-lg-4">
                         <span class="alt-font d-block text-white mb-5px">Social connect</span>
                         <ul>
-                            <li><a href="javascript:valid(0)" target="_blank"><i class="feather icon-feather-facebook icon-very-small text-white me-9px" style="user-select: auto;"></i> Facebook</a></li>
-                            <li><a href="javascript:valid(0)" target="_blank"><i class="feather icon-feather-linkedin icon-very-small text-white me-9px" style="user-select: auto;"></i> LinkedIn</a></li>
-                            <li><a href="javascript:valid(0)" target="_blank"><i class="feather icon-feather-twitter icon-very-small text-white me-9px" style="user-select: auto;"></i> Twitter</a></li>
-                            <li><a href="javascript:valid(0)" target="_blank"><i class="feather icon-feather-instagram icon-very-small text-white me-9px" style="user-select: auto;"></i> Instagram</a></li>
+                            <li><a href="javascript:valid(0)" target="_blank"><i class="feather icon-feather-facebook icon-very-small text-white me-12px" "></i> Facebook</a></li>
+                            <li><a href="javascript:valid(0)" target="_blank"><i class="feather icon-feather-linkedin icon-very-small text-white me-12px" "></i> LinkedIn</a></li>
+                            <li><a href="javascript:valid(0)" target="_blank"><i class="feather icon-feather-twitter icon-very-small text-white me-12px" "></i> Twitter</a></li>
+                            <li><a href="javascript:valid(0)" target="_blank"><i class="feather icon-feather-instagram icon-very-small text-white me-12px" "></i> Instagram</a></li>
                         </ul>
                     </div>
                     <!-- end footer column -->
@@ -67,14 +67,15 @@ class FooterComponent extends HTMLElement {
             </div> 
 
             <div class="border-top border-color-transparent-white-light pt-35px pb-35px text-center mt-5">
-                    <span class="fs-15 w-60 lg-w-70 md-w-100 d-block mx-auto lh-22">Copyright © 2025 | Powered by Tzigane</span>
+                    <span class="fs-15 w-60 lg-w-70 md-w-100 d-block mx-auto lh-22">Copyright © 2025 | Powered by SSTzigane</span>
             </div>
         </footer>
         <!-- end footer -->
         <!-- start sticky column -->
-        <div class="sticky-wrap z-index-1 d-none  d-xl-inline-block" data-animation-delay="100" data-shadow-animation="true">
-            <span class="fs-15 fw-500"><i class="feather icon-feather-mail icon-small me-10px align-middle"></i>SS TZIGANE INDIA PVT.LTD? — <a href="contact.html" class="text-decoration-line-bottom fw-600">Get started now</a></span>
-        </div>
+        <!---div class="sticky-wrap z-index-1 d-none  d-xl-inline-block" data-animation-delay="100" data-shadow-animation="true">
+            <span class="fs-15 fw-500">SS TZIGANE INDIA PVT.LTD? — <i class="feather icon-feather-file icon-small me-10px align-middle"></i><a href="./img/SStzigane.pdf" class="text-decoration-line-bottom fw-600">Download 
+Brochure</a></span>
+        </div-->
         <!-- end sticky column -->
          <!-- start scroll progress -->
         <div class="scroll-progress  d-xxl-block">
