@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Contact Us | SS Tzigane India Pvt. Ltd</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Contact SS Tzigane India Pvt. Ltd">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/vendors.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .form-results {
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .alert-success { background: #d4edda; color: #155724; }
+        .alert-danger  { background: #f8d7da; color: #721c24; }
+        .alert-info    { background: #d1ecf1; color: #0c5460; }
+    </style>
+</head>
+
+<body>
+
+<section class="container" style="max-width:600px;margin:40px auto;">
+    <h2>Contact Us</h2>
+
+    <form id="contactForm" action="email-templates/contact-form.php" method="post">
+
+        <input type="text" name="name" placeholder="Your Name*" required class="form-control mb-3">
+
+        <input type="email" name="email" placeholder="Email Address*" required class="form-control mb-3">
+
+        <input type="tel" name="phone" placeholder="Phone Number*" required class="form-control mb-3">
+
+        <input type="text" name="company" placeholder="Company*" required class="form-control mb-3">
+
+        <textarea name="message" placeholder="Your Message*" rows="4" required class="form-control mb-3"></textarea>
+
+        <button type="submit" class="btn btn-dark">Send Message</button>
+
+        <div class="form-results d-none mt-3"></div>
+    </form>
+</section>
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- ✅ SINGLE, CORRECT AJAX SCRIPT -->
+<script>
+$(document).ready(function () {
+
+    $('#contactForm').on('submit', function (e) {
+        e.preventDefault();
+
+        var $form = $(this);
+        var $results = $form.find('.form-results');
+
+        $.ajax({
+            url: $form.attr('action'),
+            type: 'POST',
+            data: $form.serialize(),
+            dataType: 'json', // IMPORTANT
+
+            beforeSend: function () {
+                $results
+                    .removeClass('alert-success alert-danger')
+                    .addClass('alert-info')
+                    .removeClass('d-none')
+                    .text('Sending...');
+            },
+
+            success: function (response) {
+              
+                console.log(response);
+
+                $results
+                    .removeClass('alert-info')
+                    .addClass(response.alert)
+                    .text(response.message)
+                    .removeClass('d-none');
+
+                if (response.alert === 'alert-success') {
+                    $form[0].reset();
+                }
+            },
+
+            error: function () {
+                $results
+                    .removeClass('alert-info')
+                    .addClass('alert-danger')
+                    .removeClass('d-none')
+                    .text('Something went wrong. Please try again.');
+            }
+        });
+    });
+
+});
+</script>
+
+</body>
+</html>

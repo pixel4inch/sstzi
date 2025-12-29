@@ -454,41 +454,40 @@
                     <div class="p-14 xl-p-11 bg-white">
                         <span class="mb-5px d-block">Looking for a business agent?</span>
                         <h4 class="d-inline-block alt-font fw-600 text-dark-gray mb-8 ls-minus-1px">How we can help?</h4>
-                       <form id="contactForm" action="email-templates/contact-form.php" method="post">
+                       <form action="email-templates/contact-form.php" method="post">
 
-<div class="position-relative form-group mb-20px">
-    <span class="form-icon"><i class="bi bi-emoji-smile"></i></span>
-<input type="text" name="name" class="form-control" placeholder="Your name*" required>
-</div>
+                        <div class="position-relative form-group mb-20px">
+                            <span class="form-icon"><i class="bi bi-emoji-smile"></i></span>
+                            <input type="text" name="name" class="form-control required" placeholder="Your name*" required>
+                        </div>
 
-<div class="position-relative form-group mb-20px">
-    <span class="form-icon"><i class="bi bi-envelope"></i></span>
-<input type="email" name="email" class="form-control" placeholder="Your email address*" required>
-</div>
+                        <div class="position-relative form-group mb-20px">
+                            <span class="form-icon"><i class="bi bi-envelope"></i></span>
+                            <input type="email" name="email" class="form-control required" placeholder="Your email address*" required>
+                        </div>
 
-<div class="position-relative form-group mb-20px">
-     <span class="form-icon"><i class="bi bi-phone"></i></span>
-<input type="tel" name="phone" class="form-control" placeholder="Phone Number*" required>
-</div>
+                        <div class="position-relative form-group mb-20px">
+                            <span class="form-icon"><i class="bi bi-phone"></i></span>
+                            <input type="tel" name="phone" class="form-control required" placeholder="Phone Number*" required>
+                        </div>
 
-<div class="position-relative form-group mb-20px">
-     <span class="form-icon"><i class="bi bi-building"></i></span>
-<input type="text" name="company" class="form-control" placeholder="Company*" required>
-</div>
+                        <div class="position-relative form-group mb-20px">
+                            <span class="form-icon"><i class="bi bi-building"></i></span>
+                            <input type="text" name="company" class="form-control required" placeholder="Company*" required>
+                        </div>
 
-<div class="position-relative form-group form-textarea">
-    <span class="form-icon"><i class="bi bi-chat-square-dots"></i></span>
-<textarea name="message" class="form-control" rows="3" placeholder="Your message*" required></textarea>
-</div>
+                        <div class="position-relative form-group form-textarea">
+                            <span class="form-icon"><i class="bi bi-chat-square-dots"></i></span>
+                            <textarea placeholder="Your message" name="message" class="form-control" rows="3" required></textarea>
 
-<button type="submit" class="btn btn-small btn-round-edge btn-dark-gray mt-20px">
-Send message
-</button>
+                            <input type="hidden" name="redirect" value="">
+                            <button class="btn btn-small btn-round-edge btn-dark-gray btn-box-shadow mt-20px m-auto submit" type="submit">
+                                Send message
+                            </button>
 
-<!-- RESULT MESSAGE -->
-<div class="form-results mt-20px d-none"></div>
-
-</form>
+                            <div class="form-results mt-20px d-none"></div>
+                        </div>
+                     </form>
                         <label for="newsletter-off" class="fs-15 mt-15px"><input class="w-auto me-10px position-relative top-1px p-0" type="checkbox" id="newsletter-off" name="newsletter-off">Don't show this popup again</label>
                     </div>
                 </div>
