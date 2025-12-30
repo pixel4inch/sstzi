@@ -1,0 +1,58 @@
+{
+  "Services": [
+    {
+      "id": "1",
+      "Title": "Integrated Building Automation Systems (IBAS)",
+      "Description": "An Integrated Building Automation System (IBAS) brings together multiple building technologies into a single, intelligent control platform. Instead of managing systems separately, IBAS enables centralized monitoring, automation, and analytics—resulting in improved efficiency, comfort, safety, and energy savings. All systems communicate through a centralized software interface, allowing facility managers to monitor and control the entire building in real time.",
+      "image":"elv.png"
+    },
+    {
+      "id": "2",
+      "Title": "Fire Detection & Alarm System",
+      "Description": "A fire detection and alarm system automatically senses fire elements (smoke, heat, flames) and alerts occupants/emergency services via control panels, sirens, and strobes, ensuring quick evacuation and response, with key components like smoke/heat detectors, manual call points, and a central control panel working together, often integrating with sprinklers for comprehensive building safety.",
+      "image":"FireDetection.jpg"
+    },
+    {
+      "id": "3",
+      "Title": "Fire Hydrant & Sprinkler System",
+      "Description": "A Fire Hydrant & Sprinkler System is a vital active fire protection solution designed to control and suppress fires at their source. These systems ensure immediate water availability for firefighting and automatic fire suppression, helping to minimize damage and protect lives.",
+      "image":"spicalfire.jpg"
+    },
+    {
+      "id": "4",
+      "Title": "Public Address & Voice Alarm System",
+      "Description": "A Public Address & Voice Alarm (PAVA) system is a life-safety solution integrating standard paging/music with emergency voice instructions for controlled evacuations, providing clear, specific directions (like Evacuate via nearest exit) over traditional alarms, essential in public buildings, airports, and hospitals, and often linked to fire detection systems for automated alerts. These scalable, intelligent systems use microphones, amplifiers, and speakers, ensuring clear communication during emergencies and everyday use, complying with safety standards like EN 54",
+      "image":"pava.png"
+    },
+    {
+      "id": "5",
+      "Title": "CCTV Survellance System",
+      "Description": "CCTV (Closed-Circuit Television) Surveillance System is a video monitoring setup where signals are transmitted to a limited, closed set of monitors for security and surveillance. In 2025, these systems have evolved significantly, integrating Artificial Intelligence (AI), cloud storage, and high-definition imaging to protect homes, businesses, and public infrastructure.",
+      "image":"escct.jpg"
+    },
+    {
+      "id": "1",
+      "Title": "Access Control System",
+      "Description": "An access control system (ACS) is a security framework designed to regulate who can view or use resources in a physical or digital environment. At its core, it ensures that only authorized individuals gain entry while maintaining a record of all access events.",
+      "image":"acsm.png"
+    },
+    {
+      "id": "1",
+      "Title": "Fire Suppression system",
+      "Description": "A fire suppression system is an automatic or manual setup that detects fire (smoke, heat, flames) and releases an extinguishing agent (water, gas, foam, chemical) to control, extinguish, or prevent fire spread in critical areas like data centers, kitchens, vehicles, or buildings, minimizing damage and protecting lives where sprinklers aren't ideal. These systems work with detection devices, activate quickly, and use specialized agents (like inert gases or clean agents) for sensitive environments or water for larger areas, all integrated with fire alarms for alerts.",
+      "image":"firesupresssystem.png"
+    },
+    {
+      "id": "1",
+      "Title": "Network System",
+      "Description": "A network system is a collection of interconnected devices (computers, servers, printers, etc.) that communicate and share resources/data using protocols over physical or wireless links, forming the backbone for everything from home internet to global infrastructure like the Internet. Key components include hardware (routers, switches) and software (protocols like TCP/IP, Network Operating Systems) that manage data flow for functions like email, file sharing, and web browsing.",
+      "image":"networksystem.png"
+    },
+    {
+      "id": "1",
+      "Title": "Internal & External Electrical Works",
+      "Description": "Internal & External Electrical Works cover the complete wiring, installation, and maintenance of electrical systems inside (internal) and outside (external/premises) buildings, including residential, commercial, and industrial projects, focusing on safety standards, power distribution (HT/LT), lighting, appliances, and ensuring reliability through adherence to norms like BIS and CPWD guidelines for efficient, safe, and compliant electrical infrastructure.",
+      "image":"internalExternalelectricWorks.png"
+    }
+  ]
+}
